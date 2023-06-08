@@ -1,0 +1,97 @@
+@import "./vars.less";
+
+@font-face {
+    font-family: "Digital Readout";
+    src: url("/game/fonts/SFDigitalReadout-Medium.ttf");
+}
+
+html, body {
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+.branded {
+    position: relative;
+    color: #b9b9b9;
+    text-decoration: none;
+    cursor: pointer;
+
+    @bgcolor: #b9b9b9;
+    @thickness: 0.08em;
+    @length: 0.5em;
+    @padding: 0.5em;
+
+    &::before {
+        content: "";
+        pointer-events: none;
+        position: absolute;
+        top: -@padding;
+        right: -@padding;
+        bottom: -@padding;
+        left: -@padding;
+        transform: scale(1.1);
+        opacity: 0;
+        transition: 0.3s;
+
+        background:
+            linear-gradient(to right, @bgcolor @thickness, transparent @thickness) 0 0,
+            linear-gradient(to right, @bgcolor @thickness, transparent @thickness) 0 100%,
+            linear-gradient(to left, @bgcolor @thickness, transparent @thickness) 100% 0,
+            linear-gradient(to left, @bgcolor @thickness, transparent @thickness) 100% 100%,
+            linear-gradient(to bottom, @bgcolor @thickness, transparent @thickness) 0 0,
+            linear-gradient(to bottom, @bgcolor @thickness, transparent @thickness) 100% 0,
+            linear-gradient(to top, @bgcolor @thickness, transparent @thickness) 0 100%,
+            linear-gradient(to top, @bgcolor @thickness, transparent @thickness) 100% 100%;
+        
+        background-repeat: no-repeat;
+        background-size: @length @length;
+    }
+
+    &:hover {
+        color: white;
+
+        &::before {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+}
+
+.textbox() {
+    background: @textbox-gradient;
+    border: solid 1px @border-color;
+    border-radius: 999em;
+    padding: 3px 8px;
+    outline: none;
+    color: white;
+
+    &:focus::placeholder {
+        color: transparent;
+    }
+}
+
+input[type="text"] {
+    .textbox();
+}
+
+input[type="password"] {
+    .textbox();
+}
+
+.error-message {
+    color: #6e1c1c;
+    background: #e97878;
+    border: solid 1px #a06f6f;
+    border-radius: 5px;
+    padding: 10px 20px;
+}

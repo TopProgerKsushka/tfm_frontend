@@ -1,0 +1,29 @@
+{
+	"name": "tfm-frontend",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+	},
+	"author": "Kseniia Labutina <ksulabut@mail.ru>",
+	"devDependencies": {
+		"@sveltejs/adapter-auto": "^2.0.0",
+		"@sveltejs/kit": "^1.5.0",
+		"less": "^4.1.3",
+		"svelte": "^3.54.0",
+		"svelte-check": "^3.0.1",
+		"svelte-preprocess": "^5.0.3",
+		"svelte-preprocess-less": "^0.4.0",
+		"tslib": "^2.4.1",
+		"typescript": "^5.0.0",
+		"vite": "^4.2.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"tfm_common": "github:TopProgerKsushka/tfm_common"
+	}
+}
